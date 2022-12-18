@@ -27,7 +27,6 @@ st.title("Final Project")
 
 st.sidebar.title("Data Selector")
 
-
 def dict_count_items(sdf):
     unique_list = []
     for dat in sdf.str.lower().tolist():
@@ -47,12 +46,12 @@ def create_layers(list_of_df, colors):
                            pickable=True,
                            filled=True,
                            opacity=0.8,
-                           get_fill_color=[255*j for j in colors[k]])
-            for k in range(len(list_of_df))]
+                           get_fill_color=[255*j for j in colors[i]])
+            for i in range(len(list_of_df))]
 
 
 def filter_by_column(df, column_name):
-    return [df.loc[(df == r).any(axis=1)] for r in dict_count_items(df[column_name]).keys()]
+    return [df.loc[(df == i).any(axis=1)] for i in dict_count_items(df[column_name]).keys()]
 
 
 def top_n_ele(d, n=10):
@@ -61,7 +60,7 @@ def top_n_ele(d, n=10):
 
 
 def filter_by_ele(df, ele_list):
-    return [df.loc[(df == r).any(axis=1)] for r in ele_list]
+    return [df.loc[(df == i).any(axis=1)] for i in ele_list]
 
 # print(filter_by_ele(df_volcano, ["Africa (Northeastern) And Red Sea"].keys()))
 
@@ -249,7 +248,7 @@ else:
                                pickable=True,
                                filled=True,
                                opacity=0.8,
-                               get_fill_color=[0, 0, 255])
+                               get_fill_color=[0,0,255])
         # Create a view of the map
         view_state = pdk.ViewState(
             latitude=df_volcano["lat"].mean(),
