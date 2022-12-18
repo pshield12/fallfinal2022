@@ -27,6 +27,7 @@ st.title("Final Project")
 
 st.sidebar.title("Data Selector")
 
+
 def dict_count_items(sdf):
     unique_list = []
     for dat in sdf.str.lower().tolist():
@@ -207,7 +208,7 @@ else:
 
         # stylish tool tip: https://pydeck.gl/tooltip.html?highlight=tooltip
         tool_tip = {
-            "html": "Name: <b>{Volcano Name}</b><br>Location: <b>{Country}</b><br>Elevation: <b>{Elevation (m)}</b>",
+            "html": "Name: <b>{Volcano Name}</b><br>Location: <b>{Country}</b><br>Elevation (m): <b>{Elevation (m)}</b>",
             "style": {"backgroundColor": "blue",
                       "color": "white"}
             }
@@ -258,7 +259,7 @@ else:
         )
         if stmap:
             # stylish tool tip
-            html = ("Name: <b>{Volcano Name}</b><br>Location: <b>{Country}</b><br>Elevation: <b>{Elevation (m)}</b>"
+            html = ("Name: <b>{Volcano Name}</b><br>Location: <b>{Country}</b><br>Elevation (m): <b>{Elevation (m)}</b>"
                     + f"<br>{selected_column}: <b>"+"{"+f"{selected_column}"+"}</b>")
             tool_tip = {
                 "html": html,
@@ -316,7 +317,7 @@ if show_comp_map == "Yes":
         )
         # stylish tool tip: https://pydeck.gl/tooltip.html?highlight=tooltip
         tool_tip = {
-            "html": "Name: <b>{Volcano Name}</b><br>Location: <b>{Country}</b><br>Elevation: <b>{Elevation (m)}</b>",
+            "html": "Name: <b>{Volcano Name}</b><br>Location: <b>{Country}</b><br>Elevation (m): <b>{Elevation (m)}</b>",
             "style": {"backgroundColor": "purple",
                       "color": "white"}
         }
